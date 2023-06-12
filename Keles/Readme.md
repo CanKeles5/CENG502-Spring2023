@@ -1,10 +1,13 @@
-# Paper title [@TODO: Change]
+# Patch Slimming for Efficient Vision Transformers
 
 This readme file is an outcome of the [CENG502 (Spring 2023)](https://ceng.metu.edu.tr/~skalkan/ADL/) project for reproducing a paper without an implementation. See [CENG502 (Spring 20223) Project List](https://github.com/CENG502-Projects/CENG502-Spring2023) for a complete list of all paper reproduction projects.
 
 # 1. Introduction
 
 @TODO: Introduce the paper (inc. where it is published) and describe your goal (reproducibility).
+The paper was published at CVPR 2022. Authors aim to reduce the computational costs of doing inference with vision transformers. This is accomplished by pruning a number of the patches in each layer of the network.
+
+We aim to reproduce the DeiT-Small models results for this project.
 
 ## 1.1. Paper summary
 
