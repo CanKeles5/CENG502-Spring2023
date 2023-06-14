@@ -18,13 +18,15 @@ We aim to reproduce the DeiT-Small models results for this project.
 ## 2.1. The original method
 
 @TODO: Explain the original method.
+To reduce the number of patches in the network, authors calculate a significance score for all the patches. This significance score calculates ... .
+We calculate a vector m'l' for each layer that contains information whether a patch is preserved or pruned.
 
 ## 2.2. Our interpretation 
 
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
 - How do we prune the model? Setting the mask values to 0 doesnt seem to improve the number of FLOPs.
-- ...
-- ...
+- Hyper parameters for fine tuning indivudial layers were not provided. We used the hyperparameters that were used to train the models originally becouse of time and resource constraints.
+- Search granuality is not provided?
 
 # 3. Experiments and results
 ## 3.1. Experimental setup
