@@ -22,9 +22,11 @@ We aim to reproduce the DeiT-Small models results for this project.
 ## 2.2. Our interpretation 
 
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
+- How do we prune the model? Setting the mask values to 0 doesnt seem to improve the number of FLOPs.
+- ...
+- ...
 
 # 3. Experiments and results
-
 ## 3.1. Experimental setup
 
 @TODO: Describe the setup of the original paper and whether you changed any settings.
@@ -32,10 +34,12 @@ We aim to reproduce the DeiT-Small models results for this project.
 ## 3.2. Running the code
 
 @TODO: Explain your code & directory structure and how other people can run it.
-
+- Run main.py with the command "..."
 ## 3.3. Results
 
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+- Accucacy: How much can we maintain?
+- FLOPs: Did we improve the efficiency of the model?
 
 # 4. Conclusion
 
@@ -48,3 +52,4 @@ We aim to reproduce the DeiT-Small models results for this project.
 # Contact
 
 @TODO: Provide your names & email addresses and any other info with which people can contact you.
+Muhammed Can Keleş can.keles@metu.edu.tr
