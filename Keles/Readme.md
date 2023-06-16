@@ -12,6 +12,7 @@ We aim to reproduce the DeiT-Small models results for this project.
 ## 1.1. Paper summary
 
 @TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
+The paper aims to reduce the computational costs of vision tranformers by reducing the number of patches to be processed in each layer. Authors state that patches in a layer are highly similar and have cosine similarity scores around 0.8 in the last layers of ViTs. For every layer, the impact of each patch on the last feature representation is estimated. Models are pruned starting from the last layer.
 
 # 2. The method and my interpretation
 
