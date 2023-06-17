@@ -26,6 +26,14 @@ We calculate a vector m'l' for each layer that contains information whether a pa
 
 Starting from the last layer of the model, we calculate significance scores for each of the patches in a layer. We select the top r patches with the highest significance scores and preserved them, while discarding the rest. We keep track of the patches to be preserved using a matrix m, with shape [num_layers, num_patches]. Each element along the first dimension represents the patches to be preserved in the corresponding layer. The values are boolean.
 
+# 2.1.1 Impact Estimation
+...
+
+# 2.1.2 Pruning
+...
+![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/bb97de7a-14ff-4ae3-b37b-1dd49aa7346f)
+
+
 ## 2.2. Our interpretation 
 
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
