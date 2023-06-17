@@ -23,6 +23,8 @@ For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only
 To reduce the number of patches in the network, authors calculate a significance score for all the patches. This significance score calculates ... .
 We calculate a vector m'l' for each layer that contains information whether a patch is preserved or pruned.
 
+Starting from the last layer of the model, we calculate significance scores for each of the patches in a layer. We select the top r patches with the highest significance scores and preserved them, while discarding the rest. We keep track of the patches to be preserved using a matrix m, with shape [num_layers, num_patches]. Each element along the first dimension represents the patches to be preserved in the corresponding layer. The values are boolean.
+
 ## 2.2. Our interpretation 
 
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
