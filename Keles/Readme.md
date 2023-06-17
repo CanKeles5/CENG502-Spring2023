@@ -6,7 +6,7 @@ This readme file is an outcome of the [CENG502 (Spring 2023)](https://ceng.metu.
 
 The paper was published at CVPR 2022. Authors aim to reduce the computational costs of doing inference with vision transformers. This is accomplished by pruning a number of the patches in each layer of the network.
 
-We aim to reproduce the DeiT-Small models results for this project. Authors state that they have reduced the number of FLOPs by %43.6 while only a %0.4 drop in accuracy on the ImageNet dataset.
+We aim to reproduce the DeiT--Small models results for this project. Authors state that they have reduced the number of FLOPs by %43.6 while only a %0.4 drop in accuracy on the ImageNet dataset. While choosing the smaller DeiT-Tiny model would allow us to do more experiments, we were unable to find a pre trained model.
 
 ## 1.1. Paper summary
 
