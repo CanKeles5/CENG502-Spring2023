@@ -27,11 +27,13 @@ Starting from the last layer of the model, we calculate significance scores for 
 ## 2.2. Our interpretation 
 
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
+The paper was easy to understand and covered the necessary details most of the time. Below we list a number of details that we werent able to find in the paper:
+
 - In the paper authors state that they only calcuate attention scores for the patches that have 1 in the corresponding position in the mask, and layer the attention scores are padded to the original input shape before feeding them into the MLP layers. In the paper it is not stated if the positions of the patches are preserved or the zero padding is done by adding zeros after the calculated attention scores. We thought that preserving the position of the attention scores whould be a better choise and we have implemeted the padding in this way.
 
 - Hyper parameters for fine tuning indivudial layers were not provided. We used the hyperparameters that were used to train the models originally becouse of time and resource constraints. These hyperparameters might be crucial becouse we are only training a single layer.
 
-- ...
+- When calculating the attention scores with the mask, authors formulate a new attention calculating where they use a matrix consisting of the vecotr m's values in its diagonal. If we implement the method directly, the number of FLOPs will not decrease for the pruned model as the input shape hasnt changed. We instead use the vector m[l] as a boolean vector and with indexing we extract the patches we are interested in calculating. After we calculate the attention scores, we pad the output before feeding it to the MLP as described previously. For pruning the MLP, ...
 
 # 3. Experiments and results
 ## 3.1. Experimental setup
