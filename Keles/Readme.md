@@ -18,6 +18,8 @@ For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only
 
 ## 2.1. The original method
 
+![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/b6ce555d-0665-4583-98ba-be792738eb74)
+
 @TODO: Explain the original method.
 To reduce the number of patches in the network, authors calculate a significance score for all the patches. This significance score calculates ... .
 We calculate a vector m'l' for each layer that contains information whether a patch is preserved or pruned.
