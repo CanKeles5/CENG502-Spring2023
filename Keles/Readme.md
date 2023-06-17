@@ -47,6 +47,12 @@ The paper was easy to understand and covered the necessary details most of the t
 ## 3.3. Results
 
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+There are two metrics we are interested in this project, one is number of FLOPs and the other is how much accuracy can we maintain from the original model.
+
+We have reduced the number of FLOPs by %a.aa. We think that we can further reduce the number of FLOPs by optimizing our implementation.
+
+We have not managed to preserve the accuracy of the model fully. When pruning the models, we need to fine tune the layers for a few epochs on the ImageNet dataset. While authors state that fine tuning a single layer is very computationally cheap, in our PyTorch implementation training a model with only a single layer unfreezed still takes a lot of time. We fine tuned our models on the ImageNet-mini dataset which is a ...
+
 - Accucacy: How much can we maintain?
 - FLOPs: Did we improve the efficiency of the model?
 
