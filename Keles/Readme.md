@@ -4,10 +4,9 @@ This readme file is an outcome of the [CENG502 (Spring 2023)](https://ceng.metu.
 
 # 1. Introduction
 
-@TODO: Introduce the paper (inc. where it is published) and describe your goal (reproducibility).
 The paper was published at CVPR 2022. Authors aim to reduce the computational costs of doing inference with vision transformers. This is accomplished by pruning a number of the patches in each layer of the network.
 
-We aim to reproduce the DeiT-Small models results for this project.
+We aim to reproduce the DeiT-Small models results for this project. Authors state that they have reduced the number of FLOPs by %43.6 while only a %0.4 drop in accuracy on the ImageNet dataset.
 
 ## 1.1. Paper summary
 
