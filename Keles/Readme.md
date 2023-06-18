@@ -2,6 +2,8 @@
 
 This readme file is an outcome of the [CENG502 (Spring 2023)](https://ceng.metu.edu.tr/~skalkan/ADL/) project for reproducing a paper without an implementation. See [CENG502 (Spring 20223) Project List](https://github.com/CENG502-Projects/CENG502-Spring2023) for a complete list of all paper reproduction projects.
 
+***Disclaimer: The code for this project was adapted from the [deit repository by Facebook](https://github.com/facebookresearch/deit). Most of our contributions are in the main.py and models_v2.py file.**
+
 # 1. Introduction
 
 The paper was published at CVPR 2022. Authors aim to reduce the computational costs of doing inference with vision transformers. This is accomplished by pruning a number of the patches in each layer of the network.
