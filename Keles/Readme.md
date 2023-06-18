@@ -65,6 +65,7 @@ To prune the models, we apply the following algorithm:
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
 The paper was easy to understand and covered the necessary details most of the time. Below we list a number of details that we werent able to find in the paper:
 
+
 - In the paper authors state that they only calcuate attention scores for the patches that have 1 in the corresponding position in the mask, and layer the attention scores are padded to the original input shape before feeding them into the MLP layers. In the paper it is not stated if the positions of the patches are preserved or the zero padding is done by adding zeros after the calculated attention scores. We thought that preserving the position of the attention scores whould be a better choise and we have implemeted the padding in this way.
 
 - Hyper parameters for fine tuning indivudial layers were not provided. We used the hyperparameters that were used to train the models originally becouse of time and resource constraints. These hyperparameters might be crucial becouse we are only training a single layer.
@@ -103,6 +104,12 @@ We have achived to reduce the number of FLOPs by %aa.aa while dropping the accur
 # 4. Conclusion
 
 @TODO: Discuss the paper in relation to the results in the paper and your results.
+
+FLOPs: ...
+
+Preserving accuracy: ...
+
+Fine tuning: Authors state that fine tuning individual layers is much faster compared to training the whole model. In our PyTorch implementation, freezing the whole model except individual layers and training them took comparable time to training the whole model. This prevented us from experimenting on the full ImageNet 1K dataset.
 
 # 5. References
 
