@@ -37,11 +37,10 @@ $[H]L \sim t+1$ denotes all the attention heads in the $(t + 1)$-th to $L$-th la
 
 PUT PRUNED AND NON-PRUNED MSA & MLP FORMULATIONS
 
+The original MSA block is formulated as following:
 $\ B_l(Z_{l-1}) = \mathcal{O}\left(\sum\limits_{h=1}^{H} P_{h,l} Z_{l-1}, \{W_l\}\right) \$
 
-...
-...
-
+The pruned MSA block can be formulated as following:
 $\ B_{b,l}(Z_{l-1}, m_l) = \mathcal{O}\left(\sum\limits_{h=1}^{H} \text{diag}(m_l) P_{h,l} Z_{l-1}, \{W_l\}\right) \$
 
 To prune the models, we apply the following algorithm:
