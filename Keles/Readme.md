@@ -22,10 +22,8 @@ For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only
   <img src="https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/b6ce555d-0665-4583-98ba-be792738eb74" alt="Sublime's custom image"/>
 </p>
 
-<p align="center">
-    <img src="https://latex.codecogs.com/svg.latex?\dpi{300}&color=000000&bg=FFFFFF&space=0.5em&text=MSA(Z_l)%20=%20\text{Concat}_h%20\left(%20\sum_{h=1}^H%20P_{hl}%20V_{hl}%20\right)%20\mathbf{W}_o^l%20=%20\sum_{h=1}^H%20P_{hl}%20Z_{l-1}%20\mathbf{W}_{hv}%20\mathbf{W}_o^l" alt="equation" />
-</p>
 
+<span style="color:#333333">![equation](https://latex.codecogs.com/svg.latex?\text{MSA}(Z_l)%20=%20\text{Concat}_h%20\left(%20\sum_{h=1}^H%20P_{hl}%20V_{hl}%20\right)%20\mathbf{W}_o^l%20=%20\sum_{h=1}^H%20P_{hl}%20Z_{l-1}%20\mathbf{W}_{hv}%20\mathbf{W}_o^l)</span>
 
 
 @TODO: Explain the original method.
