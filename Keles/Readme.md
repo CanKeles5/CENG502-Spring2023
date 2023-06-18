@@ -47,13 +47,17 @@ $A_{h,t}[:,i]$ denotes the $i$-th column of $A_{h,t}$, and $U_{h,t}[i,:]$ is the
 $[H]L \sim t+1$ denotes all the attention heads in the $(t + 1)$-th to $L$-th layer.
 
 
-PUT PRUNED AND NON-PRUNED MSA & MLP FORMULATIONS
+Authors modify the MSA and MLP modules as following:
 
 The original MSA block is formulated as following:
 $\ B_l(Z_{l-1}) = \mathcal{O}\left(\sum\limits_{h=1}^{H} P_{h,l} Z_{l-1}, \{W_l\}\right) \$
 
 The pruned MSA block can be formulated as following:
 $\ B_{b,l}(Z_{l-1}, m_l) = \mathcal{O}\left(\sum\limits_{h=1}^{H} \text{diag}(m_l) P_{h,l} Z_{l-1}, \{W_l\}\right) \$
+
+The pruned MLP module can be formulated as following: 
+$\ MLP[l(Z_{b0}^l)] = \text{diag}(m_l) \cdot \varphi(Z_{b0}^lW_a^l)W_b \$
+
 
 To prune the models, we apply the following algorithm:
 
