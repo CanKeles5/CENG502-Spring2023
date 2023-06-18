@@ -39,6 +39,17 @@ MAYBE BUT THE OPTIMIZATION FORMULATION FOR THE ABOVE STATEMENT
 
 To obtain the masks ml for each layer, we calculate a significance score ... PUT FORMULAS HERE.
 
+The impact of the t-th layer's patch on the final error EL can be reflected by a significance metric st ∈ R^N.
+
+For the i-th patch in the t-th layer, we have
+
+st,i = ∑_{h∈[H]L∼t+1} (Ah_t[:, i] * Uh_t[i, :])^2,   (6)
+
+where Ah_t = QL^l=t+1 diag(ml)Ph_l and Uh_t = Ph_t|Zt−1|.
+Ah_t[:, i] denotes the i-th column of Ah_t, and Uh_t[i, :] is the i-th row of Uh_t.
+[H]L∼t+1 denotes all the attention heads in the (t + 1)-th to L-th layer.
+
+
 PUT PRUNED AND NON-PRUNED MSA & MLP FORMULATIONS
 
 ...
