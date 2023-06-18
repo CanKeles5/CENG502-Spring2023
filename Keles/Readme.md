@@ -39,11 +39,12 @@ MAYBE BUT THE OPTIMIZATION FORMULATION FOR THE ABOVE STATEMENT
 
 To obtain the masks ml for each layer, we calculate a significance score ... PUT FORMULAS HERE.
 
-The impact of the t-th layer's patch on the final error $E_L$ can be reflected by a significance metric $s_t \in \mathbb{R}^N$.
+The impact of the $t$-th layer's patch on the final error $E_L$ can be reflected by a significance metric $s_t \in \mathbb{R}^N$.
 
 For the $i$-th patch in the $t$-th layer, we have
 
-\[s_{t,i} = \sum_{h \in [H]L \sim t+1} (A_{h,t}[:,i] \cdot U_{h,t}[i,:])^2, \quad (6)
+\[
+s_{t,i} = \sum_{h \in [H]L \sim t+1} (A_{h,t}[:,i] \cdot U_{h,t}[i,:])^2, \quad (6)
 \]
 
 where $A_{h,t} = QL^{l=t+1} \text{diag}(m_l)P_{h,l}$ and $U_{h,t} = P_{h,t}|Z_{t-1}|$.
