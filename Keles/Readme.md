@@ -39,8 +39,10 @@ PUT PRUNED AND NON-PRUNED MSA & MLP FORMULATIONS
 
 $\ B_l(Z_{l-1}) = \mathcal{O}\left(\sum\limits_{h=1}^{H} P_{h,l} Z_{l-1}, \{W_l\}\right) \$
 
-
 ...
+...
+
+$\ B_{b,l}(Z_{l-1}, m_l) = \mathcal{O}\left(\sum\limits_{h=1}^{H} \text{diag}(m_l) P_{h,l} Z_{l-1}, \{W_l\}\right) \$
 
 To prune the models, we apply the following algorithm:
 
