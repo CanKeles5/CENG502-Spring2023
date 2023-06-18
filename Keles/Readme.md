@@ -105,8 +105,9 @@ We have reduced the number of FLOPs by %a.aa. We think that we can further reduc
 ![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/06fb0338-ad23-4af8-b757-00802f353436)
 
 
-We have not managed to preserve the accuracy of the model fully. When pruning the models, we need to fine tune the layers for a few epochs on the ImageNet dataset. While authors state that fine tuning a single layer is very computationally cheap, in our PyTorch implementation training a model with only a single layer unfreezed still takes a lot of time. We fine tuned our models on the ImageNet-mini dataset which is a ...
-We have achived to reduce the number of FLOPs by %33 while dropping the accuracy of the model by %15 on the ImageNet-Mini validation set. We could not preserve the accuracy of the model most probably due to not being able to fine tune the layers long enough. We have started an experiment that fine tunes each layer on the whole dataset but due to time and resource constraints we do not currently have results to present right now. The losses seem promising and we are confident that if we fine tuned on the whole dataset, the performance drop would be much smaller.
+We have not managed to preserve the accuracy of the model fully. When pruning the models, we need to fine tune the layers for a few epochs on the ImageNet dataset. While authors state that fine tuning a single layer is very computationally cheap, in our PyTorch implementation training a model with only a single layer unfreezed still takes a lot of time. We fine tuned our models on the ImageNet-mini dataset which is a dataset that has much less samples compared to the original ImageNet dataset.
+
+**We have achived to reduce the number of FLOPs by %33 while dropping the accuracy of the model by %15 on the ImageNet-Mini validation set, the accuracy dropped from %80.5 to %65.1.** We could not preserve the accuracy of the model most probably due to not being able to fine tune the layers long enough. We have started an experiment that fine tunes each layer on the whole dataset but due to time and resource constraints we do not currently have results to present right now. The losses seem promising and we are confident that if we fine tuned on the whole dataset, the performance drop would be much smaller.
 
 The reduction of number of FLOPs depends on the number of pruned patches, in our experiments we have seen that a reduction of %17 to %40 percent in the number of FLOPs is achivable.
 
@@ -117,6 +118,7 @@ The reduction of number of FLOPs depends on the number of pruned patches, in our
 
 @TODO: Discuss the paper in relation to the results in the paper and your results.
 
+We believe that we have been able to confirm the results of the authors partially. We have reduced the number of FLOPs while maintaining meaningfull weights that still achive a respectable accuracy.
 FLOPs: ...
 
 Preserving accuracy: ...
