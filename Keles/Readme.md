@@ -103,7 +103,9 @@ We have reduced the number of FLOPs by %a.aa. We think that we can further reduc
 
 
 We have not managed to preserve the accuracy of the model fully. When pruning the models, we need to fine tune the layers for a few epochs on the ImageNet dataset. While authors state that fine tuning a single layer is very computationally cheap, in our PyTorch implementation training a model with only a single layer unfreezed still takes a lot of time. We fine tuned our models on the ImageNet-mini dataset which is a ...
-We have achived to reduce the number of FLOPs by %aa.aa while dropping the accuracy of the model by %bbb.bbb on the ImageNet-Mini validation set.
+We have achived to reduce the number of FLOPs by %33 while dropping the accuracy of the model by %15 on the ImageNet-Mini validation set. We could not preserve the accuracy of the model most probably due to not being able to fine tune the layers long enough. We have started an experiment that fine tunes each layer on the whole dataset but due to time and resource constraints we do not currently have results to present right now. The losses seem promising and we are confident that if we fine tuned on the whole dataset, the performance drop would be much smaller.
+
+The reduction of number of FLOPs depends on the number of pruned patches, in our experiments we have seen that a reduction of %17 to %40 percent in the number of FLOPs is achivable.
 
 - Accucacy: How much can we maintain?
 - FLOPs: Did we improve the efficiency of the model?
