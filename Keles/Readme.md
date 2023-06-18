@@ -28,6 +28,9 @@ We want to minimize the number of patches in the models while preserving the acc
 
 MAYBE BUT THE OPTIMIZATION FORMULATION FOR THE ABOVE STATEMENT
 
+min \{ m_1, m_2, \ldots, m_{L-1} \} \sum_{l=1}^{L-1} k_{ml}k_0, \quad \text{s.t. } m_l \in \{0, 1\}^N, \quad E_L \leq \left\| \text{diag}(m_L) \left( Z_b^L - Z^L \right) \right\|_F^2 \leq \varepsilon,
+
+
 To obtain the masks ml for each layer, we calculate a significance score. The impact of the $t$-th layer's patch on the final error $E_L$ can be reflected by a significance metric $s_t \in \mathbb{R}^N$. For the $i$-th patch in the $t$-th layer, we have
 
 $s_{t,i} = \sum_{h \in [H]L \sim t+1} (A_{h,t}[:, i] \cdot U_{h,t}[i, :])^2$
