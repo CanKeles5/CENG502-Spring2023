@@ -89,11 +89,13 @@ The paper was easy to understand and covered the necessary details most of the t
 # 3. Experiments and results
 ## 3.1. Experimental setup
 
+Becouse of resource constraints, we made a few differences on the experimental setup.
+
 **Model:** We conducted our experiments with a pre-trained DeiT-III-Small model. The pre-trained model was trained on the ImageNet 1K dataset.
 
 **Dataset:** Instead of using the full ImageNet1K dataset, we used ImageNet-Mini becouse of resource constraints. Authors state that fine tuning a single layer is relatively fast, but in our PyTorch implementation this was not the case. With the pre-trained model, the top-1 accuracy on the ImageNet 1K dataset was %80.5.
 
-Fine tuning: Authors fine tune the models until a treshold for the error is passed. We omited this and only fine tuned each layer for 5 epochs becouse of resource constraints.
+**Fine tuning:** Authors fine tune the models until a treshold for the error is passed. We omited this and only fine tuned each layer for 5 epochs becouse of resource constraints.
 
 ## 3.2. Running the code
 
