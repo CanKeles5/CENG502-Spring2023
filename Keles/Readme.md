@@ -18,8 +18,6 @@ For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only
 
 ## 2.1. The original method
 
-###![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/b6ce555d-0665-4583-98ba-be792738eb74)
-
 <p align="center">
   <img src="https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/b6ce555d-0665-4583-98ba-be792738eb74" alt="Sublime's custom image"/>
 </p>
@@ -35,8 +33,10 @@ Starting from the last layer of the model, we calculate significance scores for 
 ...
 
 # 2.1.2. Pruning
-...
-![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/bb97de7a-14ff-4ae3-b37b-1dd49aa7346f)
+
+<p align="center">
+  <img src="https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/bb97de7a-14ff-4ae3-b37b-1dd49aa7346f" alt="Sublime's custom image"/>
+</p>
 
 
 ## 2.2. Our interpretation 
