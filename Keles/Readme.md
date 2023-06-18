@@ -18,15 +18,6 @@ For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only
 
 ## 2.1. The original method
 
-
-<div align="center">
-
-![equation](https://latex.codecogs.com/svg.latex?\text{MSA}(Z_l)%20=%20\text{Concat}_h%20\left(%20\sum_{h=1}^H%20P_{hl}%20V_{hl}%20\right)%20\mathbf{W}_o^l%20=%20\sum_{h=1}^H%20P_{hl}%20Z_{l-1}%20\mathbf{W}_{hv}%20\mathbf{W}_o^l)
-
-</div>
-
-
-@TODO: Explain the original method.
 Authors show that patches within a layer are mostly redundant as we go deeper in the model. In the last layers, the cosine similratiy between some pathces reaches 0.8. This implies that some of the patches are redundant and can be eliminated without much performance decrease. In this paper, authors propose a method to reduce the number of patches that are fed into the attention layers. For each layer a binary vector ml is used for representing if a patch is preserved or discarded.
 
 In CNN's pruning channels is common. Pruning channels in ViT's dont work well mainly becouse in ViT's each of the patches correspond to one another in different layers. Authors propose a method where we prune the ViT's in a top down manner. We start from the last layer and selectively eliminate a number of pathces in each layer, while preserving the patches in the previous layer for each layer.
@@ -37,11 +28,7 @@ We want to minimize the number of patches in the models while preserving the acc
 
 MAYBE BUT THE OPTIMIZATION FORMULATION FOR THE ABOVE STATEMENT
 
-To obtain the masks ml for each layer, we calculate a significance score ... PUT FORMULAS HERE.
-
-The impact of the $t$-th layer's patch on the final error $E_L$ can be reflected by a significance metric $s_t \in \mathbb{R}^N$.
-
-For the $i$-th patch in the $t$-th layer, we have
+To obtain the masks ml for each layer, we calculate a significance score. The impact of the $t$-th layer's patch on the final error $E_L$ can be reflected by a significance metric $s_t \in \mathbb{R}^N$. For the $i$-th patch in the $t$-th layer, we have
 
 $s_{t,i} = \sum_{h \in [H]L \sim t+1} (A_{h,t}[:, i] \cdot U_{h,t}[i, :])^2$
 
