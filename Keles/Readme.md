@@ -77,7 +77,6 @@ To prune the models, we apply the following algorithm:
 
 ## 2.2. Our interpretation 
 
-@TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
 The paper was easy to understand and covered the necessary details most of the time. Below we list a number of details that we werent able to find in the paper:
 
 
@@ -90,10 +89,9 @@ The paper was easy to understand and covered the necessary details most of the t
 # 3. Experiments and results
 ## 3.1. Experimental setup
 
-@TODO: Describe the setup of the original paper and whether you changed any settings.
-Model: We conducted our experiments with a pre-trained DeiT-III-Small model. The pre-trained model was trained on the ImageNet 1K dataset.
+**Model:** We conducted our experiments with a pre-trained DeiT-III-Small model. The pre-trained model was trained on the ImageNet 1K dataset.
 
-Dataset: Instead of using the full ImageNet1K dataset, we used ImageNet-Mini becouse of resource constraints. Authors state that fine tuning a single layer is relatively fast, but in our PyTorch implementation this was not the case. With the pre-trained model, the top-1 accuracy on the ImageNet 1K dataset was %80.5.
+**Dataset:** Instead of using the full ImageNet1K dataset, we used ImageNet-Mini becouse of resource constraints. Authors state that fine tuning a single layer is relatively fast, but in our PyTorch implementation this was not the case. With the pre-trained model, the top-1 accuracy on the ImageNet 1K dataset was %80.5.
 
 Fine tuning: Authors fine tune the models until a treshold for the error is passed. We omited this and only fine tuned each layer for 5 epochs becouse of resource constraints.
 
@@ -102,10 +100,13 @@ Fine tuning: Authors fine tune the models until a treshold for the error is pass
 @TODO: Explain your code & directory structure and how other people can run it.
 We prune a DeiT-III-Small model pre-trained on ImageNet1K. The pre-trained model is downloaded and loaded when you run the main.py. You can provide the dataset path you wish to fine tune your models on when running the command below.
 
-- Run main.py with the command
+- Run main.py with the command, this will prune the model and fine tune it on the dataset you provided.
 ```
 python -m torch.distributed.launch --nproc_per_node=1 --use_env main.py --model deit_small_patch16_224 --batch-size 128 --data-path /path_to_your_dataset --output_dir /your_output_directory
 ```
+
+If you want to apply this method to another model, simply have a look at the models_v2.py file and make the necessary additions to the standard ViT structure.
+
 ## 3.3. Results
 
 There are two metrics we are interested in this project, one is number of FLOPs and the other is how much accuracy can we maintain from the original model.
