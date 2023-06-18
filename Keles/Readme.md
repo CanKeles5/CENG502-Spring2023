@@ -21,7 +21,7 @@ For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only
 Authors show that patches within a layer are mostly redundant as we go deeper in the model. In the last layers, the cosine similratiy between some pathces reaches 0.8. This implies that some of the patches are redundant and can be eliminated without much performance decrease. In this paper, authors propose a method to reduce the number of patches that are fed into the attention layers. For each layer a binary vector ml is used for representing if a patch is preserved or discarded.
 
 <div style="text-align:center">
-![The comparison between channel pruning in CNNs and patch pruning in vision transformers.](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/5940a109-998b-4220-82b2-fd8b61da4fca)
+![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/5940a109-998b-4220-82b2-fd8b61da4fca)
 </div>
 
 In CNN's pruning channels is common. Pruning channels in ViT's dont work well mainly becouse in ViT's each of the patches correspond to one another in different layers. Authors propose a method where we prune the ViT's in a top down manner. We start from the last layer and selectively eliminate a number of pathces in each layer, while preserving the patches in the previous layer for each layer.
