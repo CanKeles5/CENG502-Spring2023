@@ -6,7 +6,7 @@ This readme file is an outcome of the [CENG502 (Spring 2023)](https://ceng.metu.
 
 The paper was published at CVPR 2022. Authors aim to reduce the computational costs of doing inference with vision transformers. This is accomplished by pruning a number of the patches in each layer of the network.
 
-We aim to reproduce the DeiT--Small models results for this project. Authors state that they have reduced the number of FLOPs by %43.6 while only a %0.4 drop in accuracy on the ImageNet dataset. While choosing the smaller DeiT-Tiny model would allow us to do more experiments, we were unable to find a pre trained model.
+We aim to reproduce the DeiT-III-Small models results for this project. Authors state that they have reduced the number of FLOPs by %43.6 while only a %0.4 drop in accuracy on the ImageNet 1K dataset. While choosing the smaller DeiT-Tiny model would allow us to do more experiments, we were unable to find a pre trained model.
 
 ## 1.1. Paper summary
 
@@ -75,10 +75,11 @@ The paper was easy to understand and covered the necessary details most of the t
 ## 3.1. Experimental setup
 
 @TODO: Describe the setup of the original paper and whether you changed any settings.
-We conducted our experiments with a pre-trained DeiT-III-Small model. The model was trained on the ImageNet 1K dataset. Instead of using the full ImageNet1K dataset, we used ImageNet-Mini becouse of resource constraints. Authors state that fine tuning a single layer is relatively fast, but in our PyTorch implementation this was not the case.
-...
-...
-...
+Model: We conducted our experiments with a pre-trained DeiT-III-Small model. The pre-trained model was trained on the ImageNet 1K dataset.
+
+Dataset: Instead of using the full ImageNet1K dataset, we used ImageNet-Mini becouse of resource constraints. Authors state that fine tuning a single layer is relatively fast, but in our PyTorch implementation this was not the case. With the pre-trained model, the top-1 accuracy on the ImageNet 1K dataset was %80.5.
+
+Fine tuning: Authors fine tune the models until a treshold for the error is passed. We omited this and only fine tuned each layer for 5 epochs becouse of resource constraints.
 
 ## 3.2. Running the code
 
