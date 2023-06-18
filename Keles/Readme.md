@@ -12,7 +12,7 @@ We aim to reproduce the DeiT-III-Small models results for this project. Authors 
 
 The paper aims to reduce the computational costs of vision tranformers by reducing the number of patches to be processed in each layer. Authors state that patches in a layer are highly similar and have cosine similarity scores around 0.8 in the last layers of ViTs. For every layer, the impact of each patch on the last feature representation is estimated. Models are pruned starting from the last layer.
 
-For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only %0.2 top-1 accuracy decrease on the ImageNet dataset.
+For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only %0.2 top-1 accuracy decrease on the ImageNet dataset. Authors show that their method preserves the models performance better while also reducing the number of FLOPs the most compared to other state of the art ViT pruning methods.
 
 # 2. The method and my interpretation
 
