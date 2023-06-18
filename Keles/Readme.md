@@ -80,6 +80,8 @@ The paper was easy to understand and covered the necessary details most of the t
 ## 3.2. Running the code
 
 @TODO: Explain your code & directory structure and how other people can run it.
+We prune a DeiT-III-Small model pre-trained on ImageNet1K. The pre-trained model is downloaded and loaded when you run the main.py. You can provide the dataset path you wish to fine tune your models on when running the command below.
+
 - Run main.py with the command "..."
 ## 3.3. Results
 
