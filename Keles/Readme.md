@@ -113,7 +113,7 @@ Fine tuning: Authors state that fine tuning individual layers is much faster com
 # 5. References
 
 @TODO: Provide your references here.
-! Give reference to the original ppr
+[Yehui Tang, Kai Han, Yunhe Wang, Chang Xu, Jianyuan Guo, Chao Xu, Dacheng Tao; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022, pp. 12165-12174](https://openaccess.thecvf.com/content/CVPR2022/html/Tang_Patch_Slimming_for_Efficient_Vision_Transformers_CVPR_2022_paper.html)
 
 # Contact
 Muhammed Can Keleş can.keles@metu.edu.tr
