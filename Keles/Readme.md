@@ -29,7 +29,7 @@ Starting from the last layer of the model, we calculate significance scores for 
 # 2.1.1 Impact Estimation
 ...
 
-# 2.1.2 Pruning
+# 2.1.2. Pruning
 ...
 ![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/bb97de7a-14ff-4ae3-b37b-1dd49aa7346f)
 
