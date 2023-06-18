@@ -47,6 +47,24 @@ PUT PRUNED AND NON-PRUNED MSA & MLP FORMULATIONS
   <img src="https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/bb97de7a-14ff-4ae3-b37b-1dd49aa7346f" alt="Sublime's custom image"/>
 </p>
 
+**Algorithm 1: Patch Slimming for Vision Transformers**
+
+**Input**: Training dataset D, vision transformer T with L layers, patch masks {ml}, Ll=1, tolerant value ɛ, preserved patch's number r, and search granularity r₀.
+
+1. Initialize mL,₀ as 1 and other elements as 0.
+2. for l = L - 1, ..., 1 do
+3.     Randomly sample a subset of training data to get the significance score sl in the l-th layer.
+4.     Set ml = ml₊₁, El = +∞, r = 0.
+5.     while El₊₁ > ɛ do
+6.         Set r elements in ml,i to 1 according to positions of the largest r scores sl,i.
+7.         Fine-tune l-th layer Bl(Zl₋₁) for a few epochs.
+8.         Calculate error El₊₁ in the (l + 1)-th layer.
+9.         r = r + r₀.
+10.    end while
+11. end for
+
+**Output**: The pruned vision transformer.
+
 
 ## 2.2. Our interpretation 
 
