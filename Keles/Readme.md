@@ -23,7 +23,7 @@ For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only
 </p>
 
 
-<span style="color:#333333">![equation](https://latex.codecogs.com/svg.latex?\text{MSA}(Z_l)%20=%20\text{Concat}_h%20\left(%20\sum_{h=1}^H%20P_{hl}%20V_{hl}%20\right)%20\mathbf{W}_o^l%20=%20\sum_{h=1}^H%20P_{hl}%20Z_{l-1}%20\mathbf{W}_{hv}%20\mathbf{W}_o^l)</span>
+<span style="color:currentColor">![equation](https://latex.codecogs.com/svg.latex?\text{MSA}(Z_l)%20=%20\text{Concat}_h%20\left(%20\sum_{h=1}^H%20P_{hl}%20V_{hl}%20\right)%20\mathbf{W}_o^l%20=%20\sum_{h=1}^H%20P_{hl}%20Z_{l-1}%20\mathbf{W}_{hv}%20\mathbf{W}_o^l)</span>
 
 
 @TODO: Explain the original method.
