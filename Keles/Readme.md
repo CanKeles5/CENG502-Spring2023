@@ -22,7 +22,7 @@ For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only
 
 ![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/f7375765-19f9-4bdd-ba1b-5e4f19410849)
 
-Figure 1. Average cosine similarity of patches for different layers of a ViT-Base model.
+Figure 1. Average cosine similarity of patches for different layers of a ViT-Base model. Source [1].
 
 
 Authors show that patches within a layer are mostly redundant as we go deeper in the model. In the last layers, the cosine similratiy between some pathces reaches 0.8. This implies that some of the patches are redundant and can be eliminated without much performance decrease. In this paper, authors propose a method to reduce the number of patches that are fed into the attention layers. For each layer a binary vector ml is used for representing if a patch is preserved or discarded.
@@ -30,6 +30,7 @@ Authors show that patches within a layer are mostly redundant as we go deeper in
 
 ![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/283c3a09-986f-4f33-a29c-f9d4057c8001)
 
+Figure 2. Comparison of pruning in CNN's and ViT's. Source [1].
 
 In CNN's pruning channels is common. Pruning channels in ViT's dont work well mainly becouse in ViT's each of the patches correspond to one another in different layers. Authors propose a method where we prune the ViT's in a top down manner. We start from the last layer and selectively eliminate a number of pathces in each layer, while preserving the patches in the previous layer for each layer.
 
@@ -107,7 +108,7 @@ There are two metrics we are interested in this project, one is number of FLOPs 
 We have reduced the number of FLOPs by %a.aa. We think that we can further reduce the number of FLOPs by optimizing our implementation.
 
 ![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/06fb0338-ad23-4af8-b757-00802f353436)
-
+Table 1. Results from the paper. Source [1].
 
 We have not managed to preserve the accuracy of the model fully. When pruning the models, we need to fine tune the layers for a few epochs on the ImageNet dataset. While authors state that fine tuning a single layer is very computationally cheap, in our PyTorch implementation training a model with only a single layer unfreezed still takes a lot of time. We fine tuned our models on the ImageNet-mini dataset which is a dataset that has much less samples compared to the original ImageNet dataset.
 
