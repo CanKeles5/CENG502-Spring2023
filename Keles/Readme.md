@@ -6,13 +6,13 @@ This readme file is an outcome of the [CENG502 (Spring 2023)](https://ceng.metu.
 
 # 1. Introduction
 
-The paper was published at CVPR 2022. Authors aim to reduce the computational costs of doing inference with vision transformers. This is accomplished by pruning a number of the patches in each layer of the network.
+The paper [***Patch Slimming for Efficient Vision Transformers**](https://openaccess.thecvf.com/content/CVPR2022/papers/Tang_Patch_Slimming_for_Efficient_Vision_Transformers_CVPR_2022_paper.pdf) was published at CVPR 2022. Authors aim to reduce the computational costs of doing inference with vision transformers. This is accomplished by pruning a number of the patches in each layer of the network to reduce the number of attention scores to be computed.
 
-We aim to reproduce the DeiT-III-Small models results for this project. Authors state that they have reduced the number of FLOPs by %45 while only a %0.2 drop in accuracy on the ImageNet 1K dataset. While choosing the smaller DeiT-Tiny model would allow us to do more experiments, we were unable to find a pre trained model.
+We aim to reproduce the DeiT-III-Small models results for this project. Authors state that they have reduced the number of FLOPs by %45 while only a %0.2 drop in accuracy on the ImageNet 1K dataset. While choosing the smaller DeiT-Tiny model would allow us to do more experiments, we were unable to find a pre trained model that met our needs for the project.
 
 ## 1.1. Paper summary
 
-The paper aims to reduce the computational costs of vision tranformers by reducing the number of patches to be processed in each layer. Authors state that patches in a layer are highly similar and have cosine similarity scores around 0.8 in the last layers of ViTs. For every layer, the impact of each patch on the last feature representation is estimated. Models are pruned starting from the last layer.
+The paper aims to reduce the computational costs of vision tranformers by reducing the number of patches to be processed in each layer. Authors state that patches in a layer are highly similar and have cosine similarity scores around 0.8 in the last layers of ViTs. For every layer, the impact of each patch on the last feature representation is estimated. Models are pruned starting from the last layer, preserved patches are passed down in a top down manner from the last layer to the first layer.
 
 For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only %0.2 top-1 accuracy decrease on the ImageNet dataset. Authors show that their method preserves the models performance better while also reducing the number of FLOPs the most compared to other state of the art ViT pruning methods.
 
@@ -74,6 +74,7 @@ To prune the models, we apply the following algorithm:
          - Increase r by r₀.
 3. Output: The pruned vision transformer.
 
+**The key detail for reducing the computational cost of the ViTs with this method lies in implementation details. We use indexing to extract the necessary patches from the original input to the attention block. Instead of feeding the attention block the full input, we feed the patches in the corresponding indexes extracted by the vectors ml. The inputs to the MLP modules within the blocks are the zero padded variants of the extracted indexes.**
 
 ## 2.2. Our interpretation 
 
@@ -84,14 +85,14 @@ The paper was easy to understand and covered the necessary details most of the t
 
 - Hyper parameters for fine tuning indivudial layers were not provided. We used the hyperparameters that were used to train the models originally becouse of time and resource constraints. These hyperparameters might be crucial becouse we are only training a single layer.
 
-- When calculating the attention scores with the mask, authors formulate a new attention calculating where they use a matrix consisting of the vecotr m's values in its diagonal. If we implement the method directly, the number of FLOPs will not decrease for the pruned model as the input shape hasnt changed. We instead use the vector m[l] as a boolean vector and with indexing we extract the patches we are interested in calculating. After we calculate the attention scores, we pad the output before feeding it to the MLP as described previously. For pruning the MLP, ...
+- When calculating the attention scores with the mask, authors formulate a new attention calculating where they use a matrix consisting of the vecotr m's values in its diagonal. If we implement the method directly, the number of FLOPs will not decrease for the pruned model as the input shape hasnt changed. We instead use the vector m[l] as a boolean vector and with indexing we extract the patches we are interested in calculating. After we calculate the attention scores, we pad the output before feeding it to the MLP as described previously. For pruning the MLP, we multiply the MLP's input by a diagonal matrix consisting of the corresponding vector ml.
 
 # 3. Experiments and results
 ## 3.1. Experimental setup
 
 Becouse of resource constraints, we made a few differences on the experimental setup.
 
-**Model:** We conducted our experiments with a pre-trained DeiT-III-Small model. The pre-trained model was trained on the ImageNet 1K dataset.
+**Model:** We conducted our experiments with a pre-trained DeiT-III-Small model. The pre-trained model was trained on the ImageNet 1K dataset. (There are results for this exact model in the paper.)
 
 **Dataset:** Instead of using the full ImageNet1K dataset, we used ImageNet-Mini becouse of resource constraints. Authors state that fine tuning a single layer is relatively fast, but in our PyTorch implementation this was not the case. With the pre-trained model, the top-1 accuracy on the ImageNet 1K dataset was %80.5.
 
@@ -99,7 +100,6 @@ Becouse of resource constraints, we made a few differences on the experimental s
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
 We prune a DeiT-III-Small model pre-trained on ImageNet1K. The pre-trained model is downloaded and loaded when you run the main.py. You can provide the dataset path you wish to fine tune your models on when running the command below.
 
 - Run main.py with the command, this will prune the model and fine tune it on the dataset you provided.
