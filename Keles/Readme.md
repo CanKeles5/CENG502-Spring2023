@@ -30,8 +30,13 @@ For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only
 To reduce the number of patches in the network, authors calculate a significance score for all the patches. This significance score calculates ... .
 We calculate a vector m'l' for each layer that contains information whether a patch is preserved or pruned.
 
-Starting from the last layer of the model, we calculate significance scores for each of the patches in a layer. We select the top r patches with the highest significance scores and preserved them, while discarding the rest. We keep track of the patches to be preserved using a matrix m, with shape [num_layers, num_patches]. Each element along the first dimension represents the patches to be preserved in the corresponding layer. The values are boolean.
+Authors show that patches within a layer are mostly redundant as we go deeper in the model. In the last layers, the cosine similratiy between some pathces reaches 0.8. This implies that some of the patches are redundant and can be eliminated without much performance decrease. In this paper, authors propose a method to reduce the number of patches that are fed into the attention layers. For each layer a binary vector ml is used for representing if a patch is preserved or discarded.
 
+PUT PRUNED AND NON-PRUNED MSA & MLP FORMULATIONS
+
+In CNN's pruning channels is common. Pruning channels in ViT's dont work well mainly becouse in ViT's each of the patches correspond to one another in different layers. Authors propose a method where we prune the ViT's in a top down manner. We start from the last layer and selectively eliminate a number of pathces in each layer, while preserving the patches in the previous layer for each layer.
+
+Starting from the last layer of the model, we calculate significance scores for each of the patches in a layer. We select the top r patches with the highest significance scores and preserved them, while discarding the rest. We keep track of the patches to be preserved using a matrix m, with shape [num_layers, num_patches]. Each element along the first dimension represents the patches to be preserved in the corresponding layer.
 # 2.1.1 Impact Estimation
 ...
 
