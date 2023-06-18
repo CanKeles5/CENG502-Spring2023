@@ -43,9 +43,7 @@ The impact of the $t$-th layer's patch on the final error $E_L$ can be reflected
 
 For the $i$-th patch in the $t$-th layer, we have
 
-\[
-s_{t,i} = \sum_{h \in [H]L \sim t+1} (A_{h,t}[:,i] \cdot U_{h,t}[i,:])^2, \quad (6)
-\]
+\[ s_{t,i} = \sum_{h \in [H]L \sim t+1} (A_{h,t}[:,i] \cdot U_{h,t}[i,:])^2, \quad (6) \]
 
 where $A_{h,t} = QL^{l=t+1} \text{diag}(m_l)P_{h,l}$ and $U_{h,t} = P_{h,t}|Z_{t-1}|$.
 $A_{h,t}[:,i]$ denotes the $i$-th column of $A_{h,t}$, and $U_{h,t}[i,:]$ is the $i$-th row of $U_{h,t}$.
