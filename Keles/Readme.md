@@ -37,7 +37,7 @@ $[H]L \sim t+1$ denotes all the attention heads in the $(t + 1)$-th to $L$-th la
 
 PUT PRUNED AND NON-PRUNED MSA & MLP FORMULATIONS
 
-$\[ B_l(Z_{l-1}) = \mathcal{O}\left(\sum\limits_{h=1}^{H} P_{h,l} Z_{l-1}, \{W_l\}\right) \]$
+$\B_l(Z_{l-1}) = \mathcal{O}\left(\sum\limits_{h=1}^{H} P_{h,l} Z_{l-1}, \{W_l\}\right) \$
 
 
 ...
