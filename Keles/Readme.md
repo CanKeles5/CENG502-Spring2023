@@ -41,11 +41,7 @@ PUT PRUNED AND NON-PRUNED MSA & MLP FORMULATIONS
 
 ...
 
-# 2.1.2. Pruning
-
-<p align="center">
-  <img src="https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/bb97de7a-14ff-4ae3-b37b-1dd49aa7346f" alt="Sublime's custom image"/>
-</p>
+Pruning:
 
 **Algorithm: Patch Slimming for Vision Transformers**
 
@@ -78,6 +74,10 @@ The paper was easy to understand and covered the necessary details most of the t
 ## 3.1. Experimental setup
 
 @TODO: Describe the setup of the original paper and whether you changed any settings.
+We conducted our experiments with a pre-trained DeiT-III-Small model. The model was trained on the ImageNet 1K dataset. Instead of using the full ImageNet1K dataset, we used ImageNet-Mini becouse of resource constraints. Authors state that fine tuning a single layer is relatively fast, but in our PyTorch implementation this was not the case.
+...
+...
+...
 
 ## 3.2. Running the code
 
