@@ -22,6 +22,8 @@ For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only
   <img src="https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/b6ce555d-0665-4583-98ba-be792738eb74" alt="Sublime's custom image"/>
 </p>
 
+MSA(Z_l) = Concat_h \left( \sum_{h=1}^H P_{hl} V_{hl} \right) \mathbf{W}_o^l = \sum_{h=1}^H P_{hl} Z_{l-1} \mathbf{W}_{hv} \mathbf{W}_o^l
+
 
 @TODO: Explain the original method.
 To reduce the number of patches in the network, authors calculate a significance score for all the patches. This significance score calculates ... .
