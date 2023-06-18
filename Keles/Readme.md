@@ -124,11 +124,12 @@ The reduction of number of FLOPs depends on the number of pruned patches, in our
 # 4. Conclusion
 
 We believe that we have been able to confirm the results of the authors partially. We have reduced the number of FLOPs while maintaining meaningfull weights that still achive a respectable accuracy.
-**FLOPs:** We have seen that our results for 
 
-**Preserving accuracy:** In our experience, fine tuning the layers is crutial for preserving the accuracy of the models.
+**FLOPs:** We have seen that our results for reducing the number of FLOPs are close enough to confirm the authors results. It should be noted that these results may depend on hardware and software specifications.
 
-**Fine tuning:** Authors state that fine tuning individual layers is much faster compared to training the whole model. In our PyTorch implementation, freezing the whole model except individual layers and training them took comparable time to training the whole model. This prevented us from experimenting on the full ImageNet 1K dataset.
+**Preserving accuracy:** In our experience, fine tuning the layers is crutial for preserving the accuracy of the models. We have preserved meaningfull accuracies when fine tuning layers, but we had drastic decreases in accuracy. We belive that if we fine tuned on the whole dataset, the decreases in performance would be negligable and close to the ones reported in the paper.
+
+**Fine tuning:** Authors state that fine tuning individual layers is much faster compared to training the whole model. In our PyTorch implementation, freezing the whole model except individual layers and training them took comparable time to training the whole model. This prevented us from experimenting on the full ImageNet 1K dataset. We set the requires_grad parameter to false for the whole model except the layer we want to fine tune.
 
 # 5. References
 [1] [Yehui Tang, Kai Han, Yunhe Wang, Chang Xu, Jianyuan Guo, Chao Xu, Dacheng Tao; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022, pp. 12165-12174](https://openaccess.thecvf.com/content/CVPR2022/html/Tang_Patch_Slimming_for_Efficient_Vision_Transformers_CVPR_2022_paper.html)
