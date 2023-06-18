@@ -34,9 +34,7 @@ Figure 2. Comparison of pruning in CNN's and ViT's. Source [1].
 
 In CNN's pruning channels is common. Pruning channels in ViT's dont work well mainly becouse in ViT's each of the patches correspond to one another in different layers. Authors propose a method where we prune the ViT's in a top down manner. We start from the last layer and selectively eliminate a number of pathces in each layer, while preserving the patches in the previous layer for each layer.
 
-Starting from the last layer of the model, we calculate significance scores for each of the patches in a layer. We select the top r patches with the highest significance scores and preserved them, while discarding the rest. We keep track of the patches to be preserved using a matrix m, with shape [num_layers, num_patches]. Each element along the first dimension represents the patches to be preserved in the corresponding layer.
-
-We want to minimize the number of patches in the models while preserving the accuracy. To preserve the models accuracy, we calculate an error between the output features of the pruned and initial model. We want to minimize this error while maximizing the number of pruned patches to increase efficiency. Optimizing this objective is an NP Hard problem ...
+Starting from the last layer of the model, we calculate significance scores for each of the patches in a layer. We select the top r patches with the highest significance scores and preserved them, while discarding the rest. We keep track of the patches to be preserved using a matrix m, with shape [num_layers, num_patches]. Each element along the first dimension represents the patches to be preserved in the corresponding layer. We want to minimize the number of patches in the models while preserving the accuracy. To preserve the models accuracy, we calculate an error between the output features of the pruned and initial model. We want to minimize this error while maximizing the number of pruned patches to increase efficiency.
 
 To obtain the masks ml for each layer, we calculate a significance score. The impact of the $t$-th layer's patch on the final error $E_L$ can be reflected by a significance metric $s_t \in \mathbb{R}^N$. For the $i$-th patch in the $t$-th layer, we have
 
@@ -47,7 +45,7 @@ $A_{h,t}[:,i]$ denotes the $i$-th column of $A_{h,t}$, and $U_{h,t}[i,:]$ is the
 $[H]L \sim t+1$ denotes all the attention heads in the $(t + 1)$-th to $L$-th layer.
 
 
-Authors modify the MSA and MLP modules as following:
+We modify the MSA and MLP modules as following:
 
 The original MSA block is formulated as following:
 $\ B_l(Z_{l-1}) = \mathcal{O}\left(\sum\limits_{h=1}^{H} P_{h,l} Z_{l-1}, \{W_l\}\right) \$
