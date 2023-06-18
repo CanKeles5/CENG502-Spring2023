@@ -84,7 +84,10 @@ The paper was easy to understand and covered the necessary details most of the t
 @TODO: Explain your code & directory structure and how other people can run it.
 We prune a DeiT-III-Small model pre-trained on ImageNet1K. The pre-trained model is downloaded and loaded when you run the main.py. You can provide the dataset path you wish to fine tune your models on when running the command below.
 
-- Run main.py with the command "..."
+- Run main.py with the command
+```
+python -m torch.distributed.launch --nproc_per_node=1 --use_env main.py --model deit_small_patch16_224 --batch-size 128 --data-path /path_to_your_dataset --output_dir /your_output_directory
+```
 ## 3.3. Results
 
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
