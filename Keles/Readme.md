@@ -18,7 +18,12 @@ For the ViT-Ti models, authors have reduced the number of FLOPs by %45 with only
 
 ## 2.1. The original method
 
-![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/b6ce555d-0665-4583-98ba-be792738eb74)
+###![image](https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/b6ce555d-0665-4583-98ba-be792738eb74)
+
+<p align="center">
+  <img src="https://github.com/CanKeles5/CENG502-Spring2023/assets/52157220/b6ce555d-0665-4583-98ba-be792738eb74" alt="Sublime's custom image"/>
+</p>
+
 
 @TODO: Explain the original method.
 To reduce the number of patches in the network, authors calculate a significance score for all the patches. This significance score calculates ... .
