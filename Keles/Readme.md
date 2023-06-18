@@ -44,9 +44,7 @@ PUT PRUNED AND NON-PRUNED MSA & MLP FORMULATIONS
 
 ...
 
-Pruning:
-
-**Algorithm: Patch Slimming for Vision Transformers**
+To prune the models, we apply the following algorithm:
 
 **Input**: Training dataset D, vision transformer T with L layers, patch masks {ml}, tolerant value ɛ, preserved patch's number r, search granularity r₀.
 
